@@ -1,111 +1,143 @@
 # Small Business Sales and Profit Tracking System Using Oracle PL/SQL
 
-## 1. Student Information
+## 1. Project Information
 
-- **Student Name:** NIYIGENA Bonnette
-- **Student ID:** 20252SEN266
-- **Course:** INSY 8311 – Database Development with PL/SQL
-- **Academic Year:** 2026–2027
-- **Instructor:** Eric Maniraguha
+| Item | Details |
+|---|---|
+| Project Title | Small Business Sales and Profit Tracking System Using Oracle PL/SQL |
+| Student Name | NIYIGENA Bonnette |
+| Student ID | 20252SEN266 |
+| Course | INSY 8311 – Database Development with PL/SQL |
+| Instructor | Eric Maniraguha |
+| Academic Year | 2026–2027 |
+| Database | Oracle Database 26ai Free |
 
 ## 2. Project Overview
 
-This project focuses on developing a Small Business Sales and Profit Tracking System using Oracle Database and PL/SQL.
+Small businesses need accurate records to manage their daily sales, products, expenses, and profits. However, some businesses still rely on manual records or disconnected spreadsheets, making it difficult to monitor business performance and make informed decisions.
 
-The system will help small businesses record product information, monitor daily sales, track business expenses, and calculate profits accurately. It will also provide reports that support better financial decision-making.
+This project proposes the development of a Small Business Sales and Profit Tracking System using Oracle Database and PL/SQL. The system will provide a structured way to record sales, manage product information, track expenses, monitor inventory, and calculate business profit.
 
 ## 3. Problem Statement
 
-Many small businesses face challenges when managing daily sales, tracking expenses, monitoring product stock, and calculating profits. Manual record-keeping can lead to calculation errors, missing records, and difficulties in understanding business performance.
+Small businesses may experience challenges when recording daily transactions, monitoring inventory, tracking expenses, and calculating profit. Manual record-keeping can lead to inaccurate information, difficulties in retrieving records, and delays in making business decisions.
 
-This project proposes an Oracle database system that automates sales and expense management and provides accurate financial information.
+There is a need for a centralized database system that organizes business information and supports reliable sales and profit tracking.
 
 ## 4. Project Objectives
 
-### Main Objective
+The main objective is to develop a database-driven system that helps small businesses manage sales and monitor profitability.
 
-To develop an Oracle PL/SQL-based system that helps small businesses manage sales, expenses, stock, and profit calculations.
+Specific objectives are to:
 
-### Specific Objectives
+1. Design and implement a relational database for managing business operations.
+2. Store and manage product and supplier information.
+3. Record sales transactions and their details.
+4. Monitor inventory levels and product availability.
+5. Record business expenses.
+6. Calculate total sales, costs, and estimated profit.
+7. Use PL/SQL programming features to automate selected business operations.
+8. Generate useful reports to support business decisions.
 
-1. To create a database for managing products, sales, and expenses.
-2. To automate sales recording and stock updates using PL/SQL.
-3. To calculate total revenue, expenses, and business profit.
-4. To generate reports that help monitor business performance.
-5. To maintain an audit trail of important database changes.
+## 5. Research and Data Source
 
-## 5. Proposed Solution
+The project is supported by research papers, Rwanda business statistics, an existing business management system, a public dataset, and Oracle technical documentation.
 
-The proposed system will use Oracle Database and PL/SQL to manage business transactions.
+### Selected Dataset
 
-It will allow users to:
-- Register and manage products.
-- Record product sales.
-- Record business expenses.
-- Automatically update product stock.
-- Calculate revenue and profit.
-- Generate sales and expense reports.
-- Track important database changes.
+**Dataset:** Online Retail  
+**Source:** UCI Machine Learning Repository  
+**Author:** Chen, D. (2015)  
+**DOI:** https://doi.org/10.24432/C5BW33  
+**Records:** 541,909 transaction records  
+**Columns:** 8 (6 features and 2 identifiers)  
+**Licence:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-## 6. Data Source
+The dataset contains information such as invoice numbers, product descriptions, quantities, invoice dates, unit prices, customer identifiers, and countries.
 
-A real dataset matching the small-business sales and expense domain will be selected from a credible source such as Kaggle, UCI Repository, Google Dataset Search, or another permitted source.
+**Dataset limitation:** The dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data will therefore be needed to support profit calculations.
 
-The selected dataset will be documented with its original link, licence, record count, and sample records.
+## 6. Planned Database Tables
 
-**Note:** The final dataset link and details will be added after verification.
-
-## 7. Planned Database Tables
+The proposed database will include the following tables:
 
 | Table | Purpose |
 |---|---|
-| PRODUCTS | Stores product details, selling prices, costs, and stock quantities |
-| SALES | Stores sales transactions and historical selling prices and costs |
-| EXPENSES | Stores business expenses |
-| AUDIT_LOG | Records important database changes |
+| PRODUCTS | Stores product information, selling prices, costs, and stock quantities. |
+| SALES | Stores general sales transaction information. |
+| SALE_DETAILS | Stores individual products and quantities included in each sale. |
+| EXPENSES | Records business operating expenses. |
+| SUPPLIERS | Stores supplier information. |
+| USERS | Stores authorized system user information. |
+| AUDIT_LOG | Records selected changes made to important database records. |
 
-## 8. Planned PL/SQL Features
+The final database structure and relationships will be refined during the database design and normalization phase.
 
-- **Procedures:** Register products, record sales, and record expenses.
-- **Functions:** Calculate total revenue, expenses, and profit.
-- **Cursors:** Retrieve and display sales and expense reports.
-- **Packages:** Organize related business procedures and functions.
-- **Triggers:** Update stock automatically and record changes in the audit log.
-- **Exceptions:** Handle invalid quantities, missing products, and other transaction errors.
+## 7. Planned PL/SQL Features
 
-## 9. Planned Innovation
+The project will apply the following Oracle PL/SQL programming concepts:
 
-**Innovation Option:** Analytics Dashboard
+- **Procedures:** To manage sales, products, and business operations.
+- **Functions:** To calculate sales totals, costs, and estimated profit.
+- **Cursors:** To retrieve and process sales and product records.
+- **Packages:** To organize related procedures and functions.
+- **Triggers:** To automate selected database operations and maintain audit records.
+- **Exception Handling:** To handle invalid inputs and database errors.
+- **Collections:** To process multiple records efficiently.
+- **Audit Logging:** To maintain records of selected database changes.
 
-**Planned Tool:** Microsoft Power BI
+## 8. Proposed Innovation
 
-The dashboard will connect to the Oracle database and display:
-- Total sales revenue.
-- Total business expenses.
-- Total profit.
-- Monthly sales trends.
-- Product sales performance.
+The proposed innovation is to connect the Oracle database to a reporting and visualization tool such as Microsoft Power BI or Excel.
 
-The dashboard will use actual database data and will be demonstrated live during the final presentation.
+The planned dashboard will present important business information, including:
 
-## 10. Technologies
+- Total sales.
+- Total expenses.
+- Estimated profit.
+- Best-selling products.
+- Inventory levels.
+- Sales performance over time.
 
-- Oracle Database 26ai Free
-- Oracle SQL
-- PL/SQL
-- Microsoft Power BI
-- Git and GitHub
+This dashboard is planned for a later project phase and will be implemented and demonstrated if feasible.
 
-## 11. Expected Results
+## 9. Expected Results
 
-The project is expected to produce a working database system that manages business transactions, calculates profits, maintains accurate records, and provides useful financial reports through an interactive dashboard.
+At the end of the project, the expected results are:
 
-## 12. References
+1. A functional Oracle relational database.
+2. Properly structured business tables and relationships.
+3. PL/SQL procedures, functions, packages, and triggers.
+4. Automated sales and inventory operations.
+5. Accurate calculations based on recorded sales, costs, and expenses.
+6. Audit records for selected database activities.
+7. Useful reports and a planned business performance dashboard.
 
-Verified research papers, reports, statistics, existing systems, dataset documentation, and Oracle technical documentation will be listed here using APA referencing.
+## 10. Project Limitations
 
-See `docs/research/research_log.md` for the complete research log.
+- The selected public dataset does not provide all the information required for complete profit calculations.
+- Additional documented product cost and expense data will be required.
+- The initial implementation will focus on the database and PL/SQL components.
+- Dashboard integration will depend on the availability and compatibility of the selected visualization tool.
 
-## 13. GitHub Repository
+## 11. References
 
-[Small Business Sales and Profit Tracking System](https://github.com/Bonnette26/Niyigena_20252SEN266_SmallBusinessSalesProfit)
+1. Mintah, C., Gabir, M., Aloo, F., & Ofori, E. K. (2022). Do business records management affect business growth? *PLOS ONE, 17*(3), e0264135. https://doi.org/10.1371/journal.pone.0264135
+
+2. Bar-Gill, S., Brynjolfsson, E., & Hak, N. (2024). Helping small businesses become more data-driven: A field experiment on eBay. *Management Science, 70*(11), 7345–7372. https://doi.org/10.1287/mnsc.2021.02026
+
+3. National Institute of Statistics of Rwanda. (2025). *Integrated Business Enterprise Survey (2023).* https://statistics.gov.rw/statistical-publications/business-establishment-finance-trade/business-establishment-finance-trade/integrated-business-enterprise-survey-2023
+
+4. Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
+
+5. Intuit. (2026, June 17). *Set up and track your inventory in QuickBooks Online.* https://quickbooks.intuit.com/learn-support/en-us/help-article/inventory-management/set-track-inventory-quickbooks-online/L22FZLBGN_US_en_US
+
+6. Oracle. (n.d.). *Server-side programming: PL/SQL, Java, and JavaScript.* Oracle AI Database 26ai Concepts. https://docs.oracle.com/en/database/oracle/oracle-database/26/cncpt/server-side-programming.html
+
+---
+
+## 12. Project Status
+
+**Current Phase:** Phase 0 – Research and Proposal
+
+The project is currently focused on research, dataset evaluation, proposal preparation, and initial database planning. Database implementation and advanced PL/SQL development will be completed in the subsequent phases.
