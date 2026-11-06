@@ -33,7 +33,13 @@ The dataset contains 541,909 transaction records from a UK-based online retailer
 
 The dataset is available under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** licence. It will provide transaction data for testing and demonstrating sales-related database operations.
 
-However, the dataset does not contain complete product purchase costs or business operating expenses. Therefore, additional documented product-cost and expense data will be prepared to support estimated profit calculations. Customer identifiers will not be used to identify individuals in project reports.
+However, the dataset does not contain complete product purchase costs or business operating expenses. Therefore, additional documented product-cost and expense data will be prepared to support estimated profit calculations To support profit calculations, the following documented approach will be used:
+
+1. **Product costs:** Where purchase costs are missing from the dataset, a documented cost ratio will be applied (e.g., estimated cost = 60% of unit price), clearly labelled as an assumption in the data dictionary.
+2. **Operating expenses:** A documented sample EXPENSES table will be prepared with realistic categories (rent, transport, salaries, utilities) and clearly marked as illustrative project data.
+3. **Data cleaning:** Cancelled invoices, negative quantities, and missing product descriptions will be removed and documented in the data preparation log.
+
+Customer identifiers will not be used to identify individuals in project reports.
 
 ### 4. Planned Database Tables
 
@@ -72,7 +78,7 @@ The project plans to connect Microsoft Power BI to the Oracle database to develo
 
 The dashboard will display total sales, total expenses, estimated profit, monthly sales trends, best-selling products, and inventory levels. It will help business owners understand business performance through visual reports instead of relying only on manual calculations.
 
-The dashboard is planned for a later project phase. It will be connected to the real Oracle database, while the main business rules and calculations will remain in PL/SQL.
+The dashboard is planned for a later project phase. Microsoft Power BI will connect to Oracle Database 26ai Free using the **Oracle client / ODBC driver** (Power BI Oracle connector). The dashboard will read data from the Oracle database, while the main business rules and profit calculations will remain enforced in PL/SQL procedures, functions, and triggers. The connection method, screenshots, and setup steps will be documented in the `innovation/` folder in Phase VII.
 
 ### 7. Expected Results
 

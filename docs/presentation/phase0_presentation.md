@@ -57,21 +57,20 @@ To develop an Oracle PL/SQL-based system for managing sales, expenses, stock, an
 
 ### Slide 5: Research and Existing Solutions
 
-The project research will examine:
+**Key research findings:**
 
-- Research on business record management.
-- Research on data-driven decisions in small businesses.
-- Rwanda business statistics.
-- Existing inventory and accounting systems such as QuickBooks.
-- Oracle PL/SQL documentation.
+- **Mintah et al. (2022):** Proper business records management is strongly linked to business growth. Businesses that keep organized records make better management decisions.
+- **Bar-Gill et al. (2024):** A field experiment on eBay found that providing small businesses with an analytics dashboard increased data-driven decision-making and raised average e-retailer revenue by **3.6%**.
+- **NISR (2025):** Rwanda had **260,780 business enterprises** in 2023. **88% were informal**, and micro businesses (1–3 employees) accounted for **83.9%** of business activities. Wholesale and retail trade represented **54.6%** of all enterprises.
+- **QuickBooks Online (Intuit, 2026):** Provides inventory tracking and restocking alerts, but it is a commercial accounting product, not a customized database solution.
+- **Oracle (n.d.):** PL/SQL supports procedures, functions, packages, cursors, triggers, and exception handling for server-side business logic.
 
-**Identified project gap**
+**Identified gaps:**
+- Existing tools are commercial (QuickBooks) or generic (eBay dashboard), not tailored to small retail businesses in Rwanda.
+- The UCI Online Retail dataset lacks complete product costs and operating expenses.
+- No reviewed system combines sales, expenses, stock control, profit calculation, and auditing in one customized Oracle PL/SQL database.
 
-The proposed project will develop a customized Oracle database solution that combines sales, expenses, stock management, profit calculations, and transaction auditing.
-
-*Note: Add verified research findings and citations after reading the six sources in the research log.*
-
----
+**This project fills the gap** by building a customized Oracle PL/SQL system that integrates sales, expenses, inventory, profit calculation, and audit logging.
 
 ### Slide 6: Data Source
 
@@ -113,17 +112,26 @@ The dashboard will use actual database data.
 
 ### Slide 8: Planned Database Design
 
-The system will initially contain four main tables:
+The system will contain **seven main tables**:
 
-1. **PRODUCTS:** Product details, selling prices, costs, and stock.
-2. **SALES:** Sales transactions, quantities, and historical prices and costs.
-3. **EXPENSES:** Business operating expenses.
-4. **AUDIT_LOG:** Important database changes.
+| Table | Purpose |
+|---|---|
+| **PRODUCTS** | Product details, selling prices, purchase costs, and stock quantities |
+| **SALES** | General sales transaction information (date, total) |
+| **SALE_DETAILS** | Individual products and quantities in each sale |
+| **EXPENSES** | Business operating expenses (category, amount, date) |
+| **SUPPLIERS** | Supplier information linked to products |
+| **USERS** | Authorized system users and roles |
+| **AUDIT_LOG** | Records of important database changes |
 
-Relationships:
-- One product can have many sales transactions.
-- Sales records reference products.
-- Audit records keep track of important database activities.
+**Relationships:**
+- One **SUPPLIER** supplies many **PRODUCTS** (1:N).
+- One **SALE** contains many **SALE_DETAILS** (1:N).
+- One **PRODUCT** appears in many **SALE_DETAILS** (1:N).
+- One **USER** records many **SALES** (1:N).
+- **AUDIT_LOG** records changes to PRODUCTS, SALES, and EXPENSES.
+
+All tables are connected through primary and foreign keys to maintain data consistency.
 
 ---
 
@@ -171,19 +179,18 @@ The project is expected to produce:
 
 ---
 
-### Slide 12: References
+### Slide 12: References (APA)
 
-Include the verified APA references from:
+Bar-Gill, S., Brynjolfsson, E., & Hak, N. (2024). Helping small businesses become more data-driven: A field experiment on eBay. *Management Science, 70*(11), 7345–7372. https://doi.org/10.1287/mnsc.2021.02026
 
-1. Research paper on business record management.
-2. Research paper on data-driven small businesses.
-3. National Institute of Statistics of Rwanda business report.
-4. UCI Online Retail dataset.
-5. QuickBooks inventory documentation.
-6. Oracle Database 26ai documentation.
+Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
 
-Full references and links will be provided in `docs/research/research_log.md`.
+Intuit. (2026, June 17). *Set up and track your inventory in QuickBooks Online.* https://quickbooks.intuit.com/learn-support/en-us/help-article/inventory-management/set-track-inventory-quickbooks-online/L22FZLBGN_US_en_US
 
----
+Mintah, C., Gabir, M., Aloo, F., & Ofori, E. K. (2022). Do business records management affect business growth? *PLOS ONE, 17*(3), e0264135. https://doi.org/10.1371/journal.pone.0264135
+
+National Institute of Statistics of Rwanda. (2025). *Integrated Business Enterprise Survey (2023).* https://statistics.gov.rw/statistical-publications/business-establishment-finance-trade/business-establishment-finance-trade/integrated-business-enterprise-survey-2023
+
+Oracle. (n.d.). *Server-side programming: PL/SQL, Java, and JavaScript.* Oracle AI Database 26ai Concepts. https://docs.oracle.com/en/database/oracle/oracle-database/26/cncpt/server-side-programming.html
 
 **Thank You**

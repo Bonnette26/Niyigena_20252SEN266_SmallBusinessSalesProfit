@@ -140,18 +140,18 @@ The project plans to use the following Oracle PL/SQL features:
 
 ## 6. Planned Innovation
 
-The planned innovation is to connect the Oracle database to a reporting or dashboard tool, such as Power BI, Excel, or another suitable visualization tool.
+The planned innovation is an interactive Analytics Dashboard using Microsoft Power BI, connected to the Oracle database.
 
-The dashboard will be designed to present useful business information, including:
+The dashboard will present useful business information, including:
 
-- Total sales
+- Total sales revenue
 - Total expenses
 - Estimated profit
 - Best-selling products
 - Inventory levels
 - Sales performance over time
 
-This feature is planned for a later project phase and will be demonstrated if successfully implemented.
+The dashboard will use actual information from the Oracle database. This feature is planned for a later project phase and will be implemented and demonstrated as part of the final system.
 
 ## 7. Research Limitations and Next Steps
 
