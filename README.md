@@ -14,15 +14,15 @@
 
 ## 2. Project Overview
 
-Small businesses need accurate records to manage their daily sales, products, expenses, and profits. However, some businesses still rely on manual records or disconnected spreadsheets, making it difficult to monitor business performance and make informed decisions.
+Small businesses need accurate records to manage daily sales, products, inventory, expenses, and profits. However, some businesses rely on manual records or disconnected spreadsheets, making it difficult to monitor business performance and make informed decisions.
 
-This project proposes the development of a Small Business Sales and Profit Tracking System using Oracle Database and PL/SQL. The system will provide a structured way to record sales, manage product information, track expenses, monitor inventory, and calculate business profit.
+This project proposes a Small Business Sales and Profit Tracking System using Oracle Database and PL/SQL. The system will provide a structured way to record sales, manage products, monitor inventory, record expenses, and calculate business profit.
 
 ## 3. Problem Statement
 
-Small businesses may experience challenges when recording daily transactions, monitoring inventory, tracking expenses, and calculating profit. Manual record-keeping can lead to inaccurate information, difficulties in retrieving records, and delays in making business decisions.
+Small businesses may experience challenges when recording daily transactions, monitoring inventory, tracking expenses, and calculating profit. Manual record-keeping can lead to inaccurate information, missing records, and difficulties in retrieving business information.
 
-There is a need for a centralized database system that organizes business information and supports reliable sales and profit tracking.
+There is a need for a centralized database system that organizes business records and supports reliable sales and profit tracking.
 
 ## 4. Project Objectives
 
@@ -30,13 +30,13 @@ The main objective is to develop a database-driven system that helps small busin
 
 Specific objectives are to:
 
-1. Design and implement a relational database for managing business operations.
+1. Design and implement a relational database for business operations.
 2. Store and manage product and supplier information.
 3. Record sales transactions and their details.
 4. Monitor inventory levels and product availability.
 5. Record business expenses.
-6. Calculate total sales, costs, and estimated profit.
-7. Use PL/SQL programming features to automate selected business operations.
+6. Calculate sales revenue, costs, and estimated profit.
+7. Use PL/SQL features to automate selected business operations.
 8. Generate useful reports to support business decisions.
 
 ## 5. Research and Data Source
@@ -45,17 +45,17 @@ The project is supported by research papers, Rwanda business statistics, an exis
 
 ### Selected Dataset
 
-**Dataset:** Online Retail  
-**Source:** UCI Machine Learning Repository  
-**Author:** Chen, D. (2015)  
-**DOI:** https://doi.org/10.24432/C5BW33  
-**Records:** 541,909 transaction records  
-**Columns:** 8 (6 features and 2 identifiers)  
-**Licence:** Creative Commons Attribution 4.0 International (CC BY 4.0)
+- **Dataset:** Online Retail
+- **Author:** Chen, D. (2015)
+- **Source:** UCI Machine Learning Repository
+- **DOI:** https://doi.org/10.24432/C5BW33
+- **Records:** 541,909 transaction records
+- **Columns:** 8 (6 features and 2 identifiers)
+- **Licence:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-The dataset contains information such as invoice numbers, product descriptions, quantities, invoice dates, unit prices, customer identifiers, and countries.
+The dataset contains invoice numbers, product descriptions, quantities, invoice dates, unit prices, customer identifiers, and countries.
 
-**Dataset limitation:** The dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data will therefore be needed to support profit calculations.
+**Dataset limitation:** The dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data will therefore be required to support profit calculations.
 
 ## 6. Planned Database Tables
 
@@ -63,7 +63,7 @@ The proposed database will include the following tables:
 
 | Table | Purpose |
 |---|---|
-| PRODUCTS | Stores product information, selling prices, costs, and stock quantities. |
+| PRODUCTS | Stores product details, selling prices, purchase costs, and stock quantities. |
 | SALES | Stores general sales transaction information. |
 | SALE_DETAILS | Stores individual products and quantities included in each sale. |
 | EXPENSES | Records business operating expenses. |
@@ -75,25 +75,25 @@ The final database structure and relationships will be refined during the databa
 
 ## 7. Planned PL/SQL Features
 
-The project will apply the following Oracle PL/SQL programming concepts:
+The project plans to use the following Oracle PL/SQL features:
 
-- **Procedures:** To manage sales, products, and business operations.
+- **Procedures:** To record sales, update products, and manage business operations.
 - **Functions:** To calculate sales totals, costs, and estimated profit.
 - **Cursors:** To retrieve and process sales and product records.
 - **Packages:** To organize related procedures and functions.
 - **Triggers:** To automate selected database operations and maintain audit records.
 - **Exception Handling:** To handle invalid inputs and database errors.
 - **Collections:** To process multiple records efficiently.
-- **Audit Logging:** To maintain records of selected database changes.
+- **Audit Logging:** To record selected changes to important business data.
 
 ## 8. Proposed Innovation
 
 The proposed innovation is to connect the Oracle database to a reporting and visualization tool such as Microsoft Power BI or Excel.
 
-The planned dashboard will present important business information, including:
+The planned dashboard will display:
 
-- Total sales.
-- Total expenses.
+- Total sales revenue.
+- Total business expenses.
 - Estimated profit.
 - Best-selling products.
 - Inventory levels.
@@ -103,13 +103,13 @@ This dashboard is planned for a later project phase and will be implemented and 
 
 ## 9. Expected Results
 
-At the end of the project, the expected results are:
+The expected project results include:
 
 1. A functional Oracle relational database.
 2. Properly structured business tables and relationships.
 3. PL/SQL procedures, functions, packages, and triggers.
 4. Automated sales and inventory operations.
-5. Accurate calculations based on recorded sales, costs, and expenses.
+5. Profit calculations based on recorded sales, costs, and expenses.
 6. Audit records for selected database activities.
 7. Useful reports and a planned business performance dashboard.
 
@@ -117,7 +117,7 @@ At the end of the project, the expected results are:
 
 - The selected public dataset does not provide all the information required for complete profit calculations.
 - Additional documented product cost and expense data will be required.
-- The initial implementation will focus on the database and PL/SQL components.
+- The initial implementation will focus on database and PL/SQL components.
 - Dashboard integration will depend on the availability and compatibility of the selected visualization tool.
 
 ## 11. References
@@ -134,10 +134,8 @@ At the end of the project, the expected results are:
 
 6. Oracle. (n.d.). *Server-side programming: PL/SQL, Java, and JavaScript.* Oracle AI Database 26ai Concepts. https://docs.oracle.com/en/database/oracle/oracle-database/26/cncpt/server-side-programming.html
 
----
-
 ## 12. Project Status
 
 **Current Phase:** Phase 0 – Research and Proposal
 
-The project is currently focused on research, dataset evaluation, proposal preparation, and initial database planning. Database implementation and advanced PL/SQL development will be completed in the subsequent phases.
+The project is currently focused on research, dataset evaluation, proposal preparation, and initial database planning. Database implementation and advanced PL/SQL development will be completed in subsequent phases.
