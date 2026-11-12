@@ -2,15 +2,13 @@
 
 ## 1. Project Information
 
-| Item | Details |
-|---|---|
-| Project Title | Small Business Sales and Profit Tracking System Using Oracle PL/SQL |
-| Student Name | NIYIGENA Bonnette |
-| Student ID | 20252SEN266 |
-| Course | INSY 8311 – Database Development with PL/SQL |
-| Instructor | Eric Maniraguha |
-| Academic Year | 2026–2027 |
-| Database | Oracle Database 26ai Free |
+- **Project Title:** Small Business Sales and Profit Tracking System Using Oracle PL/SQL
+- **Student Name:** NIYIGENA Bonnette
+- **Student ID:** 20252SEN266
+- **Course:** INSY 8311 – Database Development with PL/SQL
+- **Instructor:** Eric Maniraguha
+- **Academic Year:** 2026–2027
+- **Database:** Oracle Database 26ai Free
 
 ## 2. Project Overview
 
@@ -51,27 +49,28 @@ The project is supported by research papers, Rwanda business statistics, an exis
 - **DOI:** https://doi.org/10.24432/C5BW33
 - **Records:** 541,909 transaction records
 - **Columns:** 8 (6 features and 2 identifiers)
-- **Licence:** Creative Commons Attribution 4.0 International (CC BY 4.0)
+- **License:** Creative Commons Attribution 4.0 International (CC BY 4.0)
 
 The dataset contains invoice numbers, product descriptions, quantities, invoice dates, unit prices, customer identifiers, and countries.
 
-**Dataset limitation:** The dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data will therefore be required to support profit calculations.
+**Dataset Limitation:** The dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data will therefore be required to support profit calculations.
 
-## 6. Planned Database Tables
+## 6. Planned Tables
 
-The proposed database will include the following tables:
+The proposed Small Business Sales and Profit Tracking System will consist of eight main database tables. Each table will store specific business information and help maintain data accuracy, consistency, and reliable reporting.
 
-| Table | Purpose |
-|---|---|
-| PRODUCTS | Stores product details, selling prices, purchase costs, and stock quantities. |
-| SALES | Stores general sales transaction information. |
-| SALE_DETAILS | Stores individual products and quantities included in each sale. |
-| EXPENSES | Records business operating expenses. |
-| SUPPLIERS | Stores supplier information. |
-| USERS | Stores authorized system user information. |
-| AUDIT_LOG | Records selected changes made to important database records. |
+1. **SUPPLIERS:** Stores information about suppliers who provide products to the business.
+2. **CUSTOMERS:** Stores customer details, including names and contact information.
+3. **PRODUCTS:** Stores product information, including descriptions, selling prices, purchase costs, and available stock quantities.
+4. **USERS:** Stores system user accounts, usernames, and assigned roles.
+5. **SALES:** Stores general sales transaction information, including transaction dates, customers, and total amounts.
+6. **SALE_DETAILS:** Stores individual products included in each sale, including quantities, unit selling prices, and costs at the time of sale.
+7. **EXPENSES:** Records business operating expenses such as rent, transport, utilities, and other costs.
+8. **AUDIT_LOG:** Records selected database activities and changes to support accountability and tracking.
 
-The final database structure and relationships will be refined during the database design and normalization phase.
+### Database Relationships
+
+The tables will be connected using primary keys and foreign keys. For example, SUPPLIERS will be related to PRODUCTS, CUSTOMERS to SALES, SALES to SALE_DETAILS, and PRODUCTS to SALE_DETAILS. These relationships will help maintain referential integrity and reduce data duplication.
 
 ## 7. Planned PL/SQL Features
 
@@ -134,8 +133,38 @@ The expected project results include:
 
 6. Oracle. (n.d.). *Server-side programming: PL/SQL, Java, and JavaScript.* Oracle AI Database 26ai Concepts. https://docs.oracle.com/en/database/oracle/oracle-database/26/cncpt/server-side-programming.html
 
-## 12. Project Status
+## 12. Project Status and Implementation Roadmap
 
-**Current Phase:** Phase 0 – Research and Proposal
+The project will be completed through the following seven phases:
 
-The project is currently focused on research, dataset evaluation, proposal preparation, and initial database planning. Database implementation and advanced PL/SQL development will be completed in subsequent phases.
+### Phase 0: Research and Proposal – In Progress
+
+This phase involves identifying the business problem, defining project objectives, evaluating the data source, reviewing relevant literature, and preparing the project proposal.
+
+### Phase I: Business Process Modeling – Planned
+
+This phase will focus on analyzing the business processes and developing the required BPMN, Use Case, and UML diagrams to illustrate how the proposed system will operate.
+
+### Phase II: Data Sourcing and Normalization – Planned
+
+This phase will involve collecting, examining, cleaning, and preparing the dataset. The data will also be normalized to reduce duplication and improve consistency.
+
+### Phase III: PDB and Oracle Enterprise Manager – Planned
+
+This phase will involve configuring the Oracle Pluggable Database (PDB), establishing the database environment, and setting up Oracle Enterprise Manager for database administration and monitoring.
+
+### Phase IV: Tables Creation and Data Loading – Planned
+
+This phase will focus on creating the database tables, defining primary and foreign keys, establishing relationships and constraints, and loading the prepared data into the database.
+
+### Phase V: Advanced PL/SQL Development – Planned
+
+This phase will involve implementing advanced PL/SQL features, including procedures, functions, triggers, cursors, collections, bulk processing, and exception handling to support the system's operations.
+
+### Phase VI: Testing, Reporting, and Final Documentation – Planned
+
+The final phase will involve testing the database system, validating its operations, generating sales and estimated profit reports, preparing dashboards, and completing the final project documentation.
+
+### Conclusion
+
+The project will be developed progressively through the seven planned phases, starting with research and proposal preparation and ending with system testing, reporting, and final documentation. Each phase will contribute to building a reliable Small Business Sales and Profit Tracking System using Oracle PL/SQL. The completed system is expected to support accurate sales recording, inventory tracking, expense management, and estimated profit analysis.
