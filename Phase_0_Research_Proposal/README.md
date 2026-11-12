@@ -59,19 +59,43 @@ The dataset contains invoice numbers, product descriptions, quantities, invoice 
 
 ## 6. Planned Database Tables
 
-The proposed database will include the following tables:
+The project will use eight main database tables to manage the daily operations of a small business, including suppliers, customers, products, sales, expenses, and business activities.
 
-| Table | Purpose |
-|---|---|
-| PRODUCTS | Stores product details, selling prices, purchase costs, and stock quantities. |
-| SALES | Stores general sales transaction information. |
-| SALE_DETAILS | Stores individual products and quantities included in each sale. |
-| EXPENSES | Records business operating expenses. |
-| SUPPLIERS | Stores supplier information. |
-| USERS | Stores authorized system user information. |
-| AUDIT_LOG | Records selected changes made to important database records. |
+1. **SUPPLIERS** – Stores supplier information, including supplier names, contact details, and addresses.
 
-The final database structure and relationships will be refined during the database design and normalization phase.
+2. **CUSTOMERS** – Stores customer information, including customer names and contact details.
+
+3. **USERS** – Stores system user information, including usernames, full names, roles, and account status.
+
+4. **PRODUCTS** – Stores product information, including product names, descriptions, supplier references, purchase costs, selling prices, and available stock quantities.
+
+5. **SALES** – Stores general sales transaction information, including sale dates, customer references, the user who recorded the sale, and total sale amounts.
+
+6. **SALE_DETAILS** – Stores individual products included in each sale, including product references, quantities sold, unit selling prices, and unit purchase costs at the time of sale.
+
+7. **EXPENSES** – Records business operating expenses, including expense categories, descriptions, amounts, dates, and the user who recorded each expense.
+
+8. **AUDIT_LOG** – Records selected database activities and changes to help track important operations performed in the system.
+
+### Table Relationships
+
+The tables will be connected using primary keys and foreign keys to maintain data consistency:
+
+- **SUPPLIERS → PRODUCTS:** One supplier can supply many products.
+- **CUSTOMERS → SALES:** One customer can make many purchases.
+- **USERS → SALES:** One user can record many sales.
+- **SALES → SALE_DETAILS:** One sale can contain multiple sale details.
+- **PRODUCTS → SALE_DETAILS:** One product can appear in many sale details.
+- **USERS → EXPENSES:** One user can record many expenses.
+- **AUDIT_LOG:** Records selected activities and changes made within the system.
+
+### Data Integrity
+
+Primary keys, foreign keys, NOT NULL constraints, UNIQUE constraints, and CHECK constraints will be used where appropriate to maintain accurate and consistent data.
+
+### Historical Sales Information
+
+The SALE_DETAILS table will store the selling price and purchase cost of each product at the time of sale. This ensures that historical sales and profit calculations remain accurate even when product prices change later.
 
 ## 7. Planned PL/SQL Features
 
@@ -86,20 +110,41 @@ The project plans to use the following Oracle PL/SQL features:
 - **Collections:** To process multiple records efficiently.
 - **Audit Logging:** To record selected changes to important business data.
 
-## 8. Proposed Innovation
+## 8. Planned Innovation
 
-The proposed innovation is to connect the Oracle database to a reporting and visualization tool such as Microsoft Power BI or Excel.
+### Analytics Dashboard Using Microsoft Power BI
 
-The planned dashboard will display:
+The planned innovation for this project is an interactive **Analytics Dashboard** developed using Microsoft Power BI and connected to the Oracle database.
 
-- Total sales revenue.
-- Total business expenses.
-- Estimated profit.
-- Best-selling products.
-- Inventory levels.
-- Sales performance over time.
+The dashboard will help small business owners monitor business performance and make better decisions using real-time or refreshed business data.
 
-This dashboard is planned for a later project phase and will be implemented and demonstrated if feasible.
+**Key Dashboard Features**
+
+The dashboard will display the following information:
+
+1. **Total Sales Revenue** – Shows the total money generated from product sales.
+2. **Total Business Expenses** – Displays the total operating expenses recorded by the business.
+3. **Estimated Net Profit** – Shows the estimated profit after subtracting expenses and product costs from sales revenue.
+4. **Monthly Sales Trends** – Displays how sales change over different months.
+5. **Best-Selling Products** – Identifies products with the highest sales quantities.
+6. **Inventory Monitoring** – Shows available stock quantities for products.
+7. **Sales Performance** – Helps compare sales performance over different periods.
+
+**Oracle Database Integration**
+
+Microsoft Power BI will connect to the Oracle database and retrieve actual business data from relevant tables or reporting views. The dashboard will use database information rather than manually entered or sample dashboard figures.
+
+**Role of PL/SQL**
+
+Oracle PL/SQL will handle business operations, calculations, data validation, and business rules. Microsoft Power BI will be responsible for presenting the information through interactive charts, tables, and visual reports.
+
+**Live Demonstration**
+
+During the final presentation, a new sales transaction will be recorded in the Oracle database. The Power BI dashboard will then be refreshed to demonstrate how the new transaction updates the business information displayed.
+
+**Documentation**
+
+The `innovation/` folder will contain documentation explaining the purpose of the dashboard, Oracle database connection setup, instructions for running it, and screenshots demonstrating its functionality.
 
 ## 9. Expected Results
 
