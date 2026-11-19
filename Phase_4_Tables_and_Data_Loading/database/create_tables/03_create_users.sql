@@ -1,0 +1,6 @@
+CREATE TABLE USERS (
+    user_id NUMBER PRIMARY KEY,
+    username VARCHAR2(50) NOT NULL UNIQUE,
+    password_hash VARCHAR2(255) NOT NULL,
+    role VARCHAR2(30) NOT NULL
+);
