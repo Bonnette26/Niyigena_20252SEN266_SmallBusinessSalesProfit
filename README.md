@@ -14,13 +14,15 @@
 
 Small businesses need accurate records to manage daily sales, products, inventory, expenses, and profits. However, some businesses rely on manual records or disconnected spreadsheets, making it difficult to monitor business performance and make informed decisions.
 
-This project proposes a Small Business Sales and Profit Tracking System using Oracle Database and PL/SQL. The system will provide a structured way to record sales, manage products, monitor inventory, record expenses, and calculate business profit.
+This project develops a Small Business Sales and Profit Tracking System using Oracle Database and PL/SQL. The system provides a structured way to record sales, manage products, monitor inventory, record expenses, and calculate estimated business profit.
+
+The project combines relational database design, data management, PL/SQL programming, testing, and reporting to support better business record management and decision-making.
 
 ## 3. Problem Statement
 
-Small businesses may experience challenges when recording daily transactions, monitoring inventory, tracking expenses, and calculating profit. Manual record-keeping can lead to inaccurate information, missing records, and difficulties in retrieving business information.
+Small businesses may experience challenges when recording daily transactions, monitoring inventory, tracking expenses, and calculating profit. Manual record-keeping can lead to inaccurate information, missing records, data duplication, and difficulties in retrieving business information.
 
-There is a need for a centralized database system that organizes business records and supports reliable sales and profit tracking.
+There is a need for a centralized database system that organizes business records and supports reliable sales, inventory, and expense tracking.
 
 ## 4. Project Objectives
 
@@ -33,9 +35,10 @@ Specific objectives are to:
 3. Record sales transactions and their details.
 4. Monitor inventory levels and product availability.
 5. Record business expenses.
-6. Calculate sales revenue, costs, and estimated profit.
+6. Calculate sales revenue, expenses, and estimated profit.
 7. Use PL/SQL features to automate selected business operations.
 8. Generate useful reports to support business decisions.
+9. Demonstrate an innovation that improves business performance monitoring.
 
 ## 5. Research and Data Source
 
@@ -53,43 +56,98 @@ The project is supported by research papers, Rwanda business statistics, an exis
 
 The dataset contains invoice numbers, product descriptions, quantities, invoice dates, unit prices, customer identifiers, and countries.
 
-**Dataset Limitation:** The dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data will therefore be required to support profit calculations.
+### Dataset Limitation
 
-## 6. Planned Tables
+The Online Retail dataset does not contain complete product purchase costs or business operating expenses. Additional documented cost and expense data are therefore required to support profit calculations.
 
-The proposed Small Business Sales and Profit Tracking System will consist of eight main database tables. Each table will store specific business information and help maintain data accuracy, consistency, and reliable reporting.
+### Implementation Note
+
+The Online Retail dataset was selected and prepared during the data sourcing and normalization work. However, the records currently inserted into the implemented database tables are sample/test records. The complete Online Retail dataset has not yet been imported into the implemented database tables.
+
+The sample records are used to demonstrate and test the database structure, relationships, constraints, and PL/SQL operations. They should not be interpreted as actual imported Online Retail dataset records.
+
+## 6. Database Design and Tables
+
+The Small Business Sales and Profit Tracking System consists of eight main database tables. Each table stores specific business information and helps maintain data accuracy, consistency, and reliable reporting.
 
 1. **SUPPLIERS:** Stores information about suppliers who provide products to the business.
 2. **CUSTOMERS:** Stores customer details, including names and contact information.
-3. **PRODUCTS:** Stores product information, including descriptions, selling prices, purchase costs, and available stock quantities.
-4. **USERS:** Stores system user accounts, usernames, and assigned roles.
-5. **SALES:** Stores general sales transaction information, including transaction dates, customers, and total amounts.
-6. **SALE_DETAILS:** Stores individual products included in each sale, including quantities, unit selling prices, and costs at the time of sale.
+3. **USERS:** Stores system user information and assigned roles.
+4. **PRODUCTS:** Stores product information, including descriptions, purchase prices, selling prices, available stock quantities, and supplier references.
+5. **SALES:** Stores general sales transaction information, including transaction dates, customers, users, and total amounts.
+6. **SALE_DETAILS:** Stores individual products included in each sale, including quantities and unit prices.
 7. **EXPENSES:** Records business operating expenses such as rent, transport, utilities, and other costs.
 8. **AUDIT_LOG:** Records selected database activities and changes to support accountability and tracking.
 
 ### Database Relationships
 
-The tables will be connected using primary keys and foreign keys. For example, SUPPLIERS will be related to PRODUCTS, CUSTOMERS to SALES, SALES to SALE_DETAILS, and PRODUCTS to SALE_DETAILS. These relationships will help maintain referential integrity and reduce data duplication.
+The tables are connected using primary keys and foreign keys.
 
-## 7. Planned PL/SQL Features
+Examples include:
 
-The project plans to use the following Oracle PL/SQL features:
+- SUPPLIERS is related to PRODUCTS.
+- CUSTOMERS is related to SALES.
+- USERS is related to SALES.
+- SALES is related to SALE_DETAILS.
+- PRODUCTS is related to SALE_DETAILS.
 
-- **Procedures:** To record sales, update products, and manage business operations.
-- **Functions:** To calculate sales totals, costs, and estimated profit.
-- **Cursors:** To retrieve and process sales and product records.
-- **Packages:** To organize related procedures and functions.
-- **Triggers:** To automate selected database operations and maintain audit records.
-- **Exception Handling:** To handle invalid inputs and database errors.
-- **Collections:** To process multiple records efficiently.
-- **Audit Logging:** To record selected changes to important business data.
+These relationships help maintain referential integrity and reduce data duplication.
 
-## 8. Proposed Innovation
+## 7. PL/SQL Development Features
+
+The project uses Oracle PL/SQL features to support business operations and database management.
+
+### Procedures
+
+Procedures are used to perform business operations, including:
+
+- Updating product quantities.
+- Recording business expenses.
+- Recording sales transactions.
+- Adding new products.
+
+### Functions
+
+Functions are used to calculate:
+
+- Total sales.
+- Total expenses.
+- Estimated profit.
+
+### Cursors
+
+Explicit cursors are used to retrieve and display:
+
+- Sales records with customer information.
+- Product information, including selling prices and quantities.
+
+### Packages
+
+The `BUSINESS_OPERATIONS_PKG` package organizes related financial calculation functions.
+
+### Exception Handling
+
+Exception handling is used to identify and manage invalid inputs, such as negative product quantities and negative expense amounts.
+
+### Audit Logging
+
+The AUDIT_LOG table provides a structure for recording selected database activities.
+
+## 8. Financial Calculations
+
+The project calculates estimated profit using the following formula:
+
+**Estimated Profit = Total Sales − Total Expenses**
+
+The PL/SQL functions calculate total sales, total expenses, and estimated profit for a specified date range.
+
+The calculation represents a simplified business performance measure. It should not be interpreted as complete accounting profit because additional costs, such as cost of goods sold and other operating costs, may need to be included.
+
+## 9. Proposed Innovation
 
 The proposed innovation is to connect the Oracle database to a reporting and visualization tool such as Microsoft Power BI or Excel.
 
-The planned dashboard will display:
+The innovation aims to provide a business performance dashboard displaying:
 
 - Total sales revenue.
 - Total business expenses.
@@ -98,28 +156,33 @@ The planned dashboard will display:
 - Inventory levels.
 - Sales performance over time.
 
-This dashboard is planned for a later project phase and will be implemented and demonstrated if feasible.
+The dashboard will help business owners understand business performance through visual reports and summarized information.
 
-## 9. Expected Results
+The innovation demonstration will form part of the project deliverables.
 
-The expected project results include:
+## 10. Expected Results
+
+The project aims to provide:
 
 1. A functional Oracle relational database.
 2. Properly structured business tables and relationships.
-3. PL/SQL procedures, functions, packages, and triggers.
-4. Automated sales and inventory operations.
-5. Profit calculations based on recorded sales, costs, and expenses.
-6. Audit records for selected database activities.
-7. Useful reports and a planned business performance dashboard.
+3. PL/SQL procedures, functions, cursors, and packages.
+4. Automated operations for selected business activities.
+5. Financial calculations for total sales, expenses, and estimated profit.
+6. Exception handling for invalid inputs.
+7. Organized project documentation and SQL scripts.
+8. Useful reports and an innovation demonstration.
+9. A complete and well-organized GitHub repository.
 
-## 10. Project Limitations
+## 11. Project Limitations
 
 - The selected public dataset does not provide all the information required for complete profit calculations.
-- Additional documented product cost and expense data will be required.
-- The initial implementation will focus on database and PL/SQL components.
-- Dashboard integration will depend on the availability and compatibility of the selected visualization tool.
+- Additional documented product cost and expense data are required.
+- The database currently uses sample/test records rather than a complete import of the Online Retail dataset.
+- The financial calculation is a simplified estimated profit calculation.
+- Dashboard integration depends on the availability and compatibility of the selected visualization tool.
 
-## 11. References
+## 12. References
 
 1. Mintah, C., Gabir, M., Aloo, F., & Ofori, E. K. (2022). Do business records management affect business growth? *PLOS ONE, 17*(3), e0264135. https://doi.org/10.1371/journal.pone.0264135
 
@@ -133,38 +196,53 @@ The expected project results include:
 
 6. Oracle. (n.d.). *Server-side programming: PL/SQL, Java, and JavaScript.* Oracle AI Database 26ai Concepts. https://docs.oracle.com/en/database/oracle/oracle-database/26/cncpt/server-side-programming.html
 
-## 12. Project Status and Implementation Roadmap
+## 13. Project Implementation Roadmap
 
-The project will be completed through the following seven phases:
+The project is organized into eight phases. Each phase contributes to the research, design, implementation, testing, documentation, and presentation of the Small Business Sales and Profit Tracking System.
 
-### Phase 0: Research and Proposal – In Progress
+### Phase 0: Research and Proposal
 
 This phase involves identifying the business problem, defining project objectives, evaluating the data source, reviewing relevant literature, and preparing the project proposal.
 
-### Phase I: Business Process Modeling – Planned
+### Phase I: Business Process Modeling
 
-This phase will focus on analyzing the business processes and developing the required BPMN, Use Case, and UML diagrams to illustrate how the proposed system will operate.
+This phase focuses on analyzing business processes and developing BPMN, Use Case, and UML diagrams to illustrate how the proposed system will operate.
 
-### Phase II: Data Sourcing and Normalization – Planned
+### Phase II: Data Sourcing and Normalization
 
-This phase will involve collecting, examining, cleaning, and preparing the dataset. The data will also be normalized to reduce duplication and improve consistency.
+This phase involves collecting, examining, cleaning, and preparing the selected dataset. The data is also normalized to reduce duplication and improve consistency.
 
-### Phase III: PDB and Oracle Enterprise Manager – Planned
+### Phase III: PDB and Oracle Database Environment
 
-This phase will involve configuring the Oracle Pluggable Database (PDB), establishing the database environment, and setting up Oracle Enterprise Manager for database administration and monitoring.
+This phase involves configuring the Oracle Pluggable Database (PDB), establishing the database environment, creating the required tablespaces, and preparing the database for development and administration.
 
-### Phase IV: Tables Creation and Data Loading – Planned
+### Phase IV: Tables Creation and Data Loading
 
-This phase will focus on creating the database tables, defining primary and foreign keys, establishing relationships and constraints, and loading the prepared data into the database.
+This phase focuses on creating database tables, defining primary and foreign keys, establishing relationships and constraints, inserting data, and validating database records.
 
-### Phase V: Advanced PL/SQL Development – Planned
+### Phase V: Advanced PL/SQL Development
 
-This phase will involve implementing advanced PL/SQL features, including procedures, functions, triggers, cursors, collections, bulk processing, and exception handling to support the system's operations.
+This phase involves developing PL/SQL procedures, functions, cursors, packages, and exception-handling mechanisms to support the system's business operations.
 
-### Phase VI: Testing, Reporting, and Final Documentation – Planned
+### Phase VI: Testing, Reporting, and Final Documentation
 
-The final phase will involve testing the database system, validating its operations, generating sales and estimated profit reports, preparing dashboards, and completing the final project documentation.
+This phase involves testing the database system, validating its operations, generating sales and estimated profit reports, preparing dashboards, and completing the project documentation.
 
-### Conclusion
+### Phase VII: Documentation, Innovation, and Final Presentation
 
-The project will be developed progressively through the seven planned phases, starting with research and proposal preparation and ending with system testing, reporting, and final documentation. Each phase will contribute to building a reliable Small Business Sales and Profit Tracking System using Oracle PL/SQL. The completed system is expected to support accurate sales recording, inventory tracking, expense management, and estimated profit analysis.
+This phase focuses on preparing and organizing the final project deliverables.
+
+The main deliverables include:
+
+1. **Complete Documentation:** A comprehensive final project report and supporting technical documentation.
+2. **Complete Repository:** A well-organized GitHub repository containing all project phases, SQL scripts, reports, tests, and screenshots.
+3. **Innovation Demo:** A demonstration of the proposed innovation, such as a business performance dashboard or reporting solution.
+4. **Final Presentation:** A 10-slide presentation explaining the project background, objectives, database design, implementation, PL/SQL development, testing, innovation, results, and conclusion.
+
+## Conclusion
+
+The Small Business Sales and Profit Tracking System is designed to provide a structured database solution for managing small business operations using Oracle PL/SQL.
+
+Through database design, data sourcing, normalization, PL/SQL development, testing, reporting, and innovation, the project aims to support accurate sales recording, inventory monitoring, expense management, and estimated profit analysis.
+
+The eight project phases provide a structured approach to developing, documenting, demonstrating, and presenting the complete system.
